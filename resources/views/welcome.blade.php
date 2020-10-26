@@ -75,7 +75,7 @@
                     <a href="https://github.com/samk13">Sams github</a>
                     {{-- @if (Route::has('login')) --}}
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/tweets') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         {{-- @if (Route::has('register')) --}}
