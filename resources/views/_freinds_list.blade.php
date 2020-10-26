@@ -1,10 +1,10 @@
-<h3 class="font-serif">Freinds</h3>
+<h3 class="font-serif">Following</h3>
 <ul>
-    @foreach (range(1,8) as $index)
+    @foreach (auth()->user()->follows as $user)
         <li class="mb-4">
             <div class="flex items-center">
-                <img class="rounded-full w-12 mr-2" src="https://avatars.dicebear.com/api/human/test.svg" alt="profile pic">
-                <p class="text-sm">name {{ $index }}</p>
+                <img class="rounded-full w-12 mr-2" src="{{ $user->avatar }}" alt="profile pic">
+                <p class="text-sm">{{ $user->name }}</p>
             </div>
         </li>
     @endforeach

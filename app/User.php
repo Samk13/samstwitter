@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Tweet;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -36,4 +36,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatarAttribute()
+    {
+        return "https://avatars.dicebear.com/api/human/" .  auth()->user()->name . ".svg";
+    }
+
+    public function timeline()
+    {
+        return Tweet::where('user_id', $this->id)->latest()->get();
+    }
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    }
+
+    public function follow(User $user)
+    {
+        return $this->follows()->save($user);
+    }
 }

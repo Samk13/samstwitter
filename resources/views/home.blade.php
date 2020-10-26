@@ -8,10 +8,10 @@
     <div class="flex-1 lg:mx-10">
         @include('_publish-tweet-panel')
         <div class="border border-gray-300 rounded-xl p-5 mt-5">
-            @include('_tweet')
-            @include('_tweet')
-            @include('_tweet')
-            @include('_tweet')
+            @foreach ($tweets as $tweet)
+                @include('_tweet')
+
+            @endforeach
         </div>
     </div>
     <div class="lg:w-auto bg-blue-200 p-5 rounded-xl">
