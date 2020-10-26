@@ -21,9 +21,12 @@
 </head>
 <body>
     <div id="app">
-        <section class="px-8">
+        <section class="px-8 py-4 mb-6">
             <header class="container mx-auto">
-                <div>Twitter</div>
+                <div class="flex justify-self-center">
+                    <img class="w-10 h-10 " src="/assets/svg/botanic.svg" alt="App icon">
+                    <p>Sams Twitter</p>
+                </div>
             </header>
         </section>
         <section class="px-8">
