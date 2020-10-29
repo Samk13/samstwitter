@@ -29,21 +29,7 @@
                 </div>
             </header>
         </section>
-        <section class="px-8">
-            <main class="container mx-auto">
-                <div class="lg:flex lg:justify-between">
-                    <div class="lg:w-auto">
-                        @include('_sidebar_links')
-                    </div>
-                    <div class="flex-1 lg:mx-10">
-                        @yield('content')
-                    </div>
-                    <div class="lg:w-auto bg-blue-200 p-5 rounded-xl">
-                        @include('_freinds_list')
-                    </div>
-                </div>
-            </main>
-        </section>
+        {{ $slot }}
     </div>
 </body>
 </html>

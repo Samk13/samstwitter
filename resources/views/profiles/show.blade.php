@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app>
     <header class="relative">
         <img src="/assets/imgs/Skärmbild 2020-10-27 013038.png"
             alt="profile pic"
@@ -11,9 +9,13 @@
                 <div class="text-xl font-bold capitalize">{{ $user->name }}</div>
                 <div class="text-xs font-thin">joined {{ $user->created_at->diffForHumans() }}</div>
             </div>
-            <div>
-                <a href="#" class="border rounded-full text-sm shadow-md py-3 px-5 text-black mr-2">Edit Profile</a>
-                <a href="#" class="bg-blue-500 rounded-full text-sm shadow-md py-3 px-5 text-white">Follow</a>
+            <div class="flex">
+                    @can ('edit', $user)
+                    <a href="{{ $user->path('edit') }}" class="border rounded-full text-sm shadow-md py-3 px-5 text-black mr-2">
+                        Edit Profile
+                    </a>
+                @endcan
+                <x-follow-button :user="$user"></x-follow-button>
             </div>
             <a href="" class="absolute bottom-0 transform -translate-x-1/2 translate-y-1/3"
             style="left: 50%;">
@@ -27,4 +29,4 @@
     @include('_timeline',[
         'tweets' => $user->tweets
     ])
-@endsection
+</x-app>

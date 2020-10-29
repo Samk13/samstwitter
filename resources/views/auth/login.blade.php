@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-master>
 <div class="container">
     <div class="flex justify-center">
         <div class="flex-col w-full md:w-1/2">
@@ -70,4 +68,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-master>
