@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'avatar', 'password','username'
     ];
 
     /**
@@ -38,9 +38,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatarAttribute()
+    public function getAvatarAttribute($value)
     {
-        return "https://avatars.dicebear.com/api/avataaars/" .auth()->user()->id. ".svg?options[]=shortHair&options[accessoriesChance]=90";
+        // return "https://avatars.dicebear.com/api/avataaars/" .auth()->user()->id. ".svg?options[]=shortHair&options[accessoriesChance]=90";
+        return asset('storage/'.$value);
         // return "https://i.pravatar.cc/40?u=" . $this->email;
     }
 
@@ -63,7 +64,7 @@ class User extends Authenticatable
 
     public function path($append = '')
     {
-        $path = route('profile', $this->name);
+        $path = route('profile', $this->username);
         return $append ? "{$path}/{$append}": $path;
     }
 
