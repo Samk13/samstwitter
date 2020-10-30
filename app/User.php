@@ -41,8 +41,12 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
         // return "https://avatars.dicebear.com/api/avataaars/" .auth()->user()->id. ".svg?options[]=shortHair&options[accessoriesChance]=90";
-        return asset('storage/'.$value);
-        // return "https://i.pravatar.cc/40?u=" . $this->email;
+        return asset($value ?:'/assets/svg/robot.svg');
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline()

@@ -43,11 +43,13 @@
 
             <div class="flex bg-grey-100 my-3">
                 <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
-                    <input type='file' class="hidden"
-                    name="avatar"
-                    id="avatar"
-                    value="{{ $user->avatar }}"
-                    required/>
+                    <input
+                        value="{{ $user->avatar }}"
+                        class="hidden"
+                        name="avatar"
+                        type='file'
+                        id="avatar"
+                    />
                     <img src="{{ $user->avatar }}" alt="avatar preview" class="w-32 rounded-full py-2">
                     <span class="flex space-x-3">
                         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
