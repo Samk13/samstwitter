@@ -14,7 +14,7 @@
                 type="submit"
                 class="bg-blue-500 rounded-xl px-5 py-2 text-white shadow"
             >
-                Twitte
+                tweet
             </button>
             <img class="rounded-full w-12 mr-2" src="{{ auth()->user()->avatar }}" alt="profile pic">
         </footer>
