@@ -6,21 +6,12 @@
         <a href="/explore" class="font-bold text-lg mb-4 block capitalize">Explore</a>
     </li>
     <li>
-        <a href="#" class="font-bold text-lg mb-4 block capitalize">Notifications</a>
-    </li>
-    <li>
-        <a href="#" class="font-bold text-lg mb-4 block capitalize">Messages</a>
-    </li>
-    <li>
-        <a href="#" class="font-bold text-lg mb-4 block capitalize">Bookmarks</a>
-    </li>
-    <li>
-        <a href="#" class="font-bold text-lg mb-4 block capitalize">Lists</a>
-    </li>
-    <li>
         <a href="{{ route('profile', auth()->user()) }}" class="font-bold text-lg mb-4 block capitalize">Profile</a>
     </li>
     <li>
-        <a href="#" class="font-bold text-lg mb-4 block capitalize">More</a>
+        <form action="/logout" method="POST">
+            @csrf
+            <button class="font-bold text-lg mb-4 block capitalize">Logout</button>
+        </form>
     </li>
 </ul>

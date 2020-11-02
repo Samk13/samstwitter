@@ -27,6 +27,9 @@
         </p>
     </header>
     @include('_timeline',[
-        'tweets' => $user->tweets
+        'tweets' => $tweets
     ])
+    <div class="">
+            {{ $tweets->links('pagination::tailwind') }}
+    </div>
 </x-app>

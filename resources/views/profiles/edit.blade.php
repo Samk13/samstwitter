@@ -117,6 +117,7 @@
 
         <div class="mb-6">
             <button class="bg-blue-400 text-white rounded-xl py-2 px-4 hover:bg-blue-500">Submit</button>
+            <a href="{{ $user->path() }}" class="border text-black rounded-xl ml-2 py-2 px-4">Cancel</a>
         </div>
     </form>
 </x-app>

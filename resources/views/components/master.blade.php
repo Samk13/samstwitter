@@ -25,7 +25,7 @@
             <header class="container mx-auto">
                 <div class="flex justify-self-center">
                     <img class="w-10 h-10 " src="/assets/svg/botanic.svg" alt="App icon">
-                    <p>Sams Twitter</p>
+                    <p class="font-bold ml-2 mt-2">Sams Twitter</p>
                 </div>
             </header>
         </section>

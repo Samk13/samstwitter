@@ -5,6 +5,7 @@
             name="body"
             placeholder="What's in your mind?"
             class="w-full h-20"
+            autofocus
             >
 
         </textarea>
@@ -12,7 +13,7 @@
         <footer class="flex items-center justify-between">
             <button
                 type="submit"
-                class="bg-blue-500 rounded-xl px-5 py-2 text-white shadow"
+                class="bg-blue-500 hover:bg-blue-700 rounded-xl px-10 py-2 text-white text-sm shadow hover:shadow-lg"
             >
                 tweet
             </button>
