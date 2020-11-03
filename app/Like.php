@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    protected $garded = [];
+    protected $guarded = [];
 
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\User;
 namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -9,30 +8,50 @@ trait Likable
 {
     public function scopeWithLikes(Builder $query)
     {
-
         $query->leftJoinSub(
-            'SELECT tweet_id, SUM(liked) likes, SUM(!liked) deslikes FROM likes
-            group by tweet_id',
+            'select tweet_id, sum(liked) likes, sum(!liked) dislikes from likes group by tweet_id',
             'likes',
             'likes.tweet_id',
             'tweets.id'
         );
-
     }
 
     public function isLikedBy(User $user)
     {
-        return (bool) $this->likes->where('user_id', $this->id)->where('liked', true)->count();
+    return (bool) ($user->likes
+        ->where('tweet_id', $this->id)
+        ->where('liked', true)
+        ->count());
     }
 
-    public function isDisLikedBy(User $user)
+    public function isDislikedBy(User $user)
     {
-        return (bool) $this->likes->where('user_id', $this->id)->where('liked', false)->count();
+        return (bool) ($user->likes
+            ->where('tweet_id', $this->id)
+            ->where('liked', false)
+            ->count());
     }
 
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function dislike($user = null)
+    {
+        return $this->like($user, false);
+    }
+
+    public function like($user = null, $liked = true)
+    {
+        $this->likes()->updateOrCreate(
+            [
+                'user_id' => $user ? $user->id : auth()->id(),
+            ],
+            [
+                'liked' => $liked,
+            ]
+        );
     }
 
 }
