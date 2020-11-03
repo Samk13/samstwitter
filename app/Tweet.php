@@ -8,7 +8,7 @@ class Tweet extends Model
 {
     use Likable;
     // protected $guarded = ['body'];
-    protected $fillable = ['body', 'user_id'];
+    protected $guarded = [];
 
     public function user()
     {
